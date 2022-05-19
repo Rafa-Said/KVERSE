@@ -2,25 +2,23 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
-  /* background-color: black;*/
 } 
 
-.container {
+.div2 {
   width: 80%; 
   margin: auto;
   display: flex;
-  /* background-color: #152840; */
 }
 
-.header {
+.div1 {
   background-color: #152840;
 }
 
-.header .container {
+.div1 .div2 {
   justify-content: space-between;
 }
 
-.header a {
+.div1 a {
   text-decoration: none;
   color: #f2f2f2;
 }
@@ -29,8 +27,8 @@ body {
   font-weight: 800;
 }
 
-.navbar {
-  width: 300px;
+.div3 {
+  width: 400px;
   font-size: 24px;
   display: flex;
   align-items: center;
@@ -44,7 +42,7 @@ body {
 
 /* SLIDESHOW - CONFIGURAÇÕES DE STYLE - INÍCIO */
 
-/* Slideshow container */
+/* Slideshow */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
@@ -119,18 +117,17 @@ body {
 }
 /* SLIDESHOW - FIM */
 
-/* BANNER */
+/* CENTRO DO SITE */
 
 .banner {
   height: fit-content;
   padding: 40px 0;
-  /* color: white; */
   background-color: #d9c3b0;
- /*  background-image: url(".././assets/imgs/bg-jelly-fish-para_outras_pags.png"); */
+ /*  background-image: url(".././assets/imgs/bg-jelly-fish-para_outras_pags.png"); */ /* ADICIONAR IMAGEM DE FUNDO*/
   background-size: cover;
 }
 
-.banner .container {
+.banner .div2 {
   height: 400px;
   font-size: 36px;
   justify-content: center;
@@ -149,18 +146,18 @@ body {
   font-size: 36px;
 }
 
-.banner .container span {
+.banner .div2 span {
   font-weight: 800;
 }
 
-/* missao visao valores */
+/* FOTOS DE DRAMA E INFOS BÁSICAS */
 
 .social {
   background-color: #e5e5e5;
   display: flex;
 }
 
-.social .container{
+.social .div2{
   justify-content: center;
 }
 
@@ -169,7 +166,7 @@ body {
   border-radius: 40px;
 }
 
-.social .container .boxes {
+.social .div2 .boxes {
   display: flex;
 }
 
@@ -193,7 +190,7 @@ body {
 }
 
 
-/* FOOTER */
+/* ESTILO DO FOOTER */
 
 .footer {
   background-color: #0d0d0d;
@@ -203,14 +200,14 @@ body {
   font-size: 15px;
 }
 
-.footer .container {
+.footer .div2 {
   justify-content: center;
 }
 
 
 /* LOGIN */
 
-.banner .container .card {
+.banner .div2 .card {
   background-color: #e5e5e5;
   height: fit-content;
   width: 400px;
@@ -316,12 +313,12 @@ input {
   width: 100vw;
 }
 
-.header-left a {
+.div1-left a {
   text-decoration: none;
   color: white;
 }
 
-.header-left {
+.div1-left {
   position: fixed;
   top: 0;
   left: 0;
@@ -334,7 +331,6 @@ input {
   align-items: center;
   border-right: 3px solid #32b9cd;
   background-color: #212124;
-  /* border: 3px solid pink; */
 }
 
 .dash-right {
@@ -347,7 +343,7 @@ input {
   left: 25%;
 }
 
-.header-left h1 {
+.div1-left h1 {
   color: #32b9cd;
 }
 
@@ -410,12 +406,11 @@ input {
   cursor: pointer;
 }
 
-/* pagina extra - simulador */
+/* PAGE DO SIMULADOR OU OUTRA COISA */
 .simulador {
   color: white;
 
 }
-
-.simulador .container {
+.simulador .div2 {
   flex-direction: column
 }
