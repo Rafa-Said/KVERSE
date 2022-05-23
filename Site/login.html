@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KVERSE by RD</title>
+    <title>KVERSE - Login</title>
 
     <script src="./js/funcoes.js"></script>
 
     <link rel="icon" href="img/logo.icon">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos1.css">
+
 </head>
 
 <body>
+
     <div class="header">
         <div class="container">
             <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="simulador.html">simulador(trocar)</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="cadastro.html">CADASTRO</a></li>
+                <li><a href="login.html">PORTAL</a></li>
+                <li><a href="reference.html">REFERÊNCIA</a></li>
             </ul>
-            <img class="img1" src="img/Logo1.png">
+            <img class="img1" src="img/Logo3.png">
         </div>
     </div>
-
 
     <div class="banner">
         <div class="alerta_erro">
@@ -36,18 +37,17 @@
         </div>
         <div class="container">
             <div class="card">
-                <h2>Olá de volta!</h2>
+                <h2>Acesso ao Portal</h2>
                 <div class="formulario">
 
 
                     <span class="tipo_campo">E-mail:</span>
-                    <input id="email_input" type="text" placeholder="Login">
+                    <input id="in_email" type="text" placeholder="meuemail@email.com">
 
                     <span class="tipo_campo">Senha:</span>
-                    <input id="senha_input" type="password" placeholder="******">
+                    <input id="in_senha" type="password" placeholder="************">
 
                     <button class="btn" onclick="entrar()">Entrar</button>
-
 
                 </div>
 
@@ -62,14 +62,13 @@
         </div>
     </div>
 
-    <!--footer inicio-->
     <div class="footer">
         <div class="container">
-            <h4>Develop by Rafaela Dias | SIS | &copy;Todos os direitos reservados – 2022-1 
+            <h4>
+                Develop and Style by Rafaela Dias | SIS | &copy;Todos os direitos reservados – 2022-1
             </h4>
         </div>
     </div>
-    <!--footer fim-->
 
 </body>
 
@@ -77,21 +76,20 @@
 
 <script>
 
-
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = in_email.value;
+        var senhaVar = in_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "(Todos os <b>Campos</b> devem ser Preenchidos!!)";
             finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 2000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -128,7 +126,7 @@
 
             } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                console.log("Erro ao acessar o portal! <br> Verifique se o e-mail e senha estão corretos!");
 
                 resposta.text().then(texto => {
                     console.error(texto);

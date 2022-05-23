@@ -1,133 +1,51 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
-} 
+  font-family: 'Arial Narrow','Franklin Gothic Medium',  Arial, sans-serif;
+  background-color: #212226;
+}
 
-.div2 {
-  width: 80%; 
+.container {
+  width: 80%;
   margin: auto;
   display: flex;
 }
 
-.div1 {
-  background-color: #152840;
-}
-
-.div1 .div2 {
+.header .container {
   justify-content: space-between;
 }
 
-.div1 a {
+.header a {
   text-decoration: none;
-  color: #f2f2f2;
-}
-
-.agora {
-  font-weight: 800;
-}
-
-.div3 {
-  width: 400px;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  color: #f2f2f2;
+  color: #BFB8B9;
+  font-size: 20px;
 }
 .img1 {
   width: 200px;
 }
-
-/* SLIDESHOW - CONFIGURAÇÕES DE STYLE - INÍCIO */
-
-/* Slideshow */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+#img2{
+  border-radius: 50px;
 }
 
-/* Hide the images by default */
-.mySlides {
-  display: none;
+.navbar {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
 }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-/* SLIDESHOW - FIM */
-
-/* CENTRO DO SITE */
+/* BANNER */
 
 .banner {
   height: fit-content;
   padding: 40px 0;
-  background-color: #d9c3b0;
- /*  background-image: url(".././assets/imgs/bg-jelly-fish-para_outras_pags.png"); */ /* ADICIONAR IMAGEM DE FUNDO*/
+  color: #BFB8B9;
+  background-color: #3B3C40;
   background-size: cover;
 }
 
-.banner .div2 {
+.banner .container {
   height: 400px;
   font-size: 36px;
   justify-content: center;
@@ -146,27 +64,26 @@ body {
   font-size: 36px;
 }
 
-.banner .div2 span {
+.banner .container span {
   font-weight: 800;
 }
 
-/* FOTOS DE DRAMA E INFOS BÁSICAS */
+/* Mini cards com Dramas */
 
 .social {
-  background-color: #e5e5e5;
+  background-color: #A69CA5;
   display: flex;
 }
 
-.social .div2{
+.social .container{
   justify-content: center;
 }
 
 .box img {
-  width: 300px;
-  border-radius: 40px;
+  width: 170px;
 }
 
-.social .div2 .boxes {
+.social .container .boxes {
   display: flex;
 }
 
@@ -190,30 +107,42 @@ body {
 }
 
 
-/* ESTILO DO FOOTER */
+/* FOOTER */
 
 .footer {
-  background-color: #0d0d0d;
-  height: 80px;
-  color: #fff;
+  background-color: #212226;
+  height: 60px;
+  color: #BFB8B9;
   display: flex;
   font-size: 15px;
 }
 
-.footer .div2 {
+.footer .container {
   justify-content: center;
 }
 
 
 /* LOGIN */
 
-.banner .div2 .card {
-  background-color: #e5e5e5;
+.container-tamanho-conteudo{
+display: flex;
+flex-direction: column;
+padding: 20px;
+width: 300px;
+height: 400px;
+margin-left: 37vw;
+border-radius: 30px 0px 30px 0px;
+justify-content: center;
+background-color: #a69ca573;
+}
+
+.banner .container .card {
+  background-color: #a69ca573;
   height: fit-content;
   width: 400px;
   display: flex;
   flex-direction: column;
-  color: palevioletred;
+  color: #bfb8b9;
   align-items: center;
   border-radius: 4px;
 }
@@ -248,12 +177,12 @@ button {
 
 .card_erro {
   display: none;
-  background-color: #fff;
+  background-color: #7b8c89;
   color: black;
   width: 230px;
   position: fixed;
   border-radius: 4px;
-  border: #e6005a 3px solid;
+  /* border: #e6005a 3px solid; */
   padding: 10px;
   margin-right: 10%;
 }
@@ -275,21 +204,21 @@ button {
 
 input {
   margin-bottom: 10px;
-  border: 2px solid #32b9cd;
+  border: dotted black;
   padding: 10px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 10px 0px 10px 0px;
 }
 
 .btn {
-  font-family: "Barlow", sans-serif;
+  font-family: 'Arial Narrow','Franklin Gothic Medium',  Arial, sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
+  color: #BFB8B9;
+  background-color: #212226;
   width: 120px;
   align-self: center;
   margin-top: 5px;
@@ -313,12 +242,12 @@ input {
   width: 100vw;
 }
 
-.div1-left a {
+.header-left a {
   text-decoration: none;
-  color: white;
+  color: #BFB8B9;
 }
 
-.div1-left {
+.header-left {
   position: fixed;
   top: 0;
   left: 0;
@@ -329,21 +258,20 @@ input {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  background-color: #7b8c89;
 }
 
 .dash-right {
   display: flex;
   width: 75%;
   height: fit-content;
-  background-color: #161618;
+  background-color: #212226;
   position: relative;
   top: 0;
   left: 25%;
 }
 
-.div1-left h1 {
+.header-left h1 {
   color: #32b9cd;
 }
 
@@ -354,7 +282,7 @@ input {
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: #BFB8B9;
   font-weight: 300;
   font-size: 1.2rem;
 }
@@ -365,24 +293,23 @@ input {
 
 .btn-nav {
   width: 40%;
-  color: white;
-  background-color: #e6005a;
+  color: #BFB8B9;
+  background-color: #212226;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
-.btn-nav-white {
+/* .btn-nav-white {
   width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
+  background-color: #212226;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
-}
+} */
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #BFB8B9;
   padding: 0;
   margin: 0;
 }
@@ -397,8 +324,8 @@ input {
   margin: 0;
   padding: 0;
   width: 20%;
-  background-color: #32b9cd;
-  color: white;
+  background-color: #212226;
+  color: #bfb8b9;
   border-radius: 10px;
   text-align: center;
   padding: 10px 15px;
@@ -406,11 +333,73 @@ input {
   cursor: pointer;
 }
 
-/* PAGE DO SIMULADOR OU OUTRA COISA */
+/* pagina extra - simulador */
 .simulador {
   color: white;
 
 }
-.simulador .div2 {
+
+.simulador .container {
   flex-direction: column
 }
+
+/* SLIDESHOW - CONFIGURAÇÕES DE STYLE - INÍCIO */
+
+/* Slideshow */
+
+.slideshow {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Imagens ocultas dentro do slideshow */
+.mySlides {
+  display: none;
+}
+
+/* Próximo e Prévia do slideshow */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Posição do botão direito*/
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Transição entre um slide e outro - Animação */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+/* SLIDESHOW - FIM */
