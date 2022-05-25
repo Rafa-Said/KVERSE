@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KVERSE - Login</title>
+
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="icon" href="img/logo.icon">
+    <link rel="stylesheet" href="estilos1.css">
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <ul class="navbar">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="cadastro.html">CADASTRO</a></li>
+                <li><a href="login.html">PORTAL</a></li>
+                <li><a href="reference.html">REFERÊNCIA</a></li>
+            </ul>
+            <img class="img1" src="img/Logo3.png">
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <h2>Acesso ao Portal</h2>
+                <div class="formulario">
+
+
+                    <span class="tipo_campo">E-mail:</span>
+                    <input id="in_email" type="text" placeholder="meuemail@email.com">
+
+                    <span class="tipo_campo">Senha:</span>
+                    <input id="in_senha" type="password" placeholder="************">
+
+                    <button class="btn" onclick="entrar()">Entrar</button>
+
+                </div>
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <h4>
+                Modify and Style by Rafaela Dias | SIS | &copy;Todos os direitos reservados – 2022-1
+            </h4>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = in_email.value;
+        var senhaVar = in_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Todos os <b>Campos</b> devem ser Preenchidos!!)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 2000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Erro ao acessar o portal! <br> Verifique se o e-mail e senha estão corretos!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
