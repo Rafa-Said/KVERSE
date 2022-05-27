@@ -28,3 +28,5 @@ CREATE TABLE votacao (
     Comedia INT,
     Drama INT
 );
+
+select * from usuario;
