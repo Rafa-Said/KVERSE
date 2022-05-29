@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KVERSE - Votação</title>
 
-    <link rel="stylesheet" href="estilos1.css">
-    <link rel="stylesheet" href="estilos2.css">
+    <link rel="stylesheet" href="../estilos1.css">
+    <link rel="stylesheet" href="../dashboard/estilos2.css">
     <script src="../js/funcoes.js"></script>
 
     <!-- scripts do Chart.js -->
@@ -17,11 +17,11 @@
 
 </head>
 
-<body onload="validarSessao(), atualizarFeed()">
+<body onload="validarSessao(), atualizarFeed()"> <!--  -->
 
     <div class="janela">
         <div class="header-left">
-            <img src="./img/Logo3.png" style="width:200px;">
+            <img src="../img/Logo3.png" style="width:200px;">
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">Klover</span>!</h3>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
-                <a href="./login.html">
+                <a href="../login.html">
                 <h3>Sair</h3>
             </a>
             </div>

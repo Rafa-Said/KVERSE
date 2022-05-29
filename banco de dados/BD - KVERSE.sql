@@ -1,7 +1,8 @@
-CREATE DATABASE kverse;
-USE kverse;
 -- DROP DATABASE kverse;
 -- DROP TABLE usuario;
+
+CREATE DATABASE kverse;
+USE kverse;
 
 CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -29,4 +30,7 @@ CREATE TABLE votacao (
     Drama INT
 );
 
-select * from usuario;
+SELECT 
+    *
+FROM
+    usuario;
