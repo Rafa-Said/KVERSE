@@ -7,7 +7,7 @@ USE kverse;
 CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(45),
-    dtnasc DATE,
+    Cel CHAR(15),
     Email VARCHAR(45),
     Senha CHAR(20)
 )  AUTO_INCREMENT=10;

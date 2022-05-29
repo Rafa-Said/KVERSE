@@ -25,7 +25,7 @@
                 <li><a href="login.html">PORTAL</a></li>
                 <li><a href="reference.html">REFERÊNCIA</a></li>
             </ul>
-            <img class="img1" src="img/Logo3.png">
+            <a href="index.html"><img class="img1" src="img/Logo3.png"></a>
         </div>
     </div>
 
@@ -43,8 +43,8 @@
                     <span class="tipo_campo">Nome Completo:</span>
                     <input id="in_nome" type="text" placeholder="Nome e Sobrenome">
 
-                    <span class="tipo_campo">Data de Nascimento:</span>
-                    <input id="in_dtnasc" type="text" placeholder="Data de Nascimento">
+                    <span class="tipo_campo">Número Celular:</span>
+                    <input id="in_cel"  placeholder="Celular">
 
                     <span class="tipo_campo">E-mail:</span>
                     <input id="in_email" type="text" placeholder="meuemail@email.com">
@@ -56,7 +56,7 @@
 
                 </div>
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                    <img src="../public/img/aguarde.gif"> <!-- id="loading-gif" -->
                 </div>
                 <div id="div_erros_login">
                 </div>
@@ -109,11 +109,11 @@
         aguardar();
 
         var nomeVar = in_nome.value;
-        var dtNascVar = in_dtnasc.value;
+        var celVar = in_cel.value;
         var emailVar = in_email.value;
         var senhaVar = in_senha.value;
 
-        if (nomeVar == "" || dtNascVar == "" || emailVar == "" || senhaVar == "") {
+        if (nomeVar == "" || celVar == "" || emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Preencha todos os Campos!!)";
 
@@ -134,7 +134,7 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
-                dtnascServer: dtNascVar,
+                celServer: celVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
