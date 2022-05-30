@@ -27,7 +27,10 @@ CREATE TABLE votacao (
     Acao INT,
     Terror INT,
     Comedia INT,
-    Drama INT
+    Drama INT,
+    Momento INT,
+    fk_usuario INT,
+    FOREIGN KEY (fk_usuario) REFERENCES usuario (id)
 );
 
 SELECT 
