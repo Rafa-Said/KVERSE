@@ -1,23 +1,24 @@
 /* config barra de Rolagem */
 
 body::-webkit-scrollbar {
-  width: 12px;               
+  width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-  background: #3B3C40;        
+  background: #3B3C40;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #BFB8B9;    
-  border-radius: 20px;       
-  border: 3px solid #3B3C40;  
+  background-color: #BFB8B9;
+  border-radius: 20px;
+  border: 3px solid #3B3C40;
 }
+
 /* Início do corpo do site */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial Narrow','Franklin Gothic Medium',  Arial, sans-serif;
+  font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
   background-color: #212226;
 }
 
@@ -36,15 +37,17 @@ body {
   color: #BFB8B9;
   font-size: 20px;
 }
+
 .img1 {
   width: 200px;
 }
-#img2{
+
+#img2 {
   border-radius: 50px;
 }
 
 .navbar {
-  width: 400px;
+  width: 600px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,7 +71,7 @@ body {
   align-items: center;
 }
 
-.tamanho-conteudo { 
+.tamanho-conteudo {
   height: fit-content !important;
 }
 
@@ -91,7 +94,7 @@ body {
   display: flex;
 }
 
-.social .container{
+.social .container {
   justify-content: center;
 }
 
@@ -140,16 +143,16 @@ body {
 
 /* LOGIN */
 
-.container-tamanho-conteudo{
-display: flex;
-flex-direction: column;
-padding: 20px;
-width: 300px;
-height: 400px;
-margin-left: 37vw;
-border-radius: 30px 0px 30px 0px;
-justify-content: center;
-background-color: #a69ca573;
+.container-tamanho-conteudo {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 300px;
+  height: 400px;
+  margin-left: 37vw;
+  border-radius: 30px 0px 30px 0px;
+  justify-content: center;
+  background-color: #a69ca573;
 }
 
 .banner .container .card {
@@ -186,7 +189,7 @@ button {
 
 /* FORMULARIO */
 
-.alerta_erro{
+.alerta_erro {
   display: flex;
   justify-content: flex-end;
 }
@@ -203,7 +206,7 @@ button {
   margin-right: 10%;
 }
 
-.card_erro #mensagem_erro{
+.card_erro #mensagem_erro {
   font-weight: 500;
   font-size: 20px;
 }
@@ -227,7 +230,7 @@ input {
 }
 
 .btn {
-  font-family: 'Arial Narrow','Franklin Gothic Medium',  Arial, sans-serif;
+  font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -249,6 +252,50 @@ input {
 .loading-div img {
   height: 50px;
   width: 50px;
+}
+
+.unique {
+  display: flex;
+  flex-direction: row;
+  background-color: #717171;
+  width: auto;
+  padding: 10px;
+  color: #e6e3e4;
+}
+
+.div_princ {
+  width: 500px;
+  padding: 10px;
+  margin-left: 5vw;
+  border-radius: 10px;
+  background-color: #a69ca56e;
+}
+
+.div_sec {
+  width: 500px;
+  padding: 10px;
+  margin-left: 12vw;
+  border-radius: 10px;
+  background-color: #a69ca56e;
+}
+
+#img_naruto {
+  width: 300px;
+  margin-left: 7vw;
+}
+
+#img_kpop {
+  width: 400px;
+  margin-left: 3.8vw;
+}
+
+.resposta{
+  width: auto;
+  font-size: 30px;
+  padding: 10px;
+  background-color:#3b3c4063;
+  color: #212226;
+  border-radius: 10px;
 }
 
 /* PAGINA DOS GRÁFICOS */
