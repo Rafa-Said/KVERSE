@@ -4,12 +4,21 @@
 CREATE DATABASE kverse;
 USE kverse;
 
+CREATE TABLE votacao (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    Romance INT,
+    Acao INT,
+    Comedia INT
+);
+
 CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(45),
     Cel CHAR(15),
     Email VARCHAR(45),
-    Senha CHAR(20)
+    Senha CHAR(20),
+	fk_votacao INT,
+    FOREIGN KEY (fk_votacao) REFERENCES votacao (id)
 )  AUTO_INCREMENT=10;
 
 CREATE TABLE aviso (
@@ -19,18 +28,6 @@ CREATE TABLE aviso (
     fk_usuario INT,
     FOREIGN KEY (fk_usuario)
         REFERENCES usuario (id)
-);
-
-CREATE TABLE votacao (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    Romance INT,
-    Acao INT,
-    Terror INT,
-    Comedia INT,
-    Drama INT,
-    Momento INT,
-    fk_usuario INT,
-    FOREIGN KEY (fk_usuario) REFERENCES usuario (id)
 );
 
 SELECT 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste simula</title>
+</head>
+<body>
+    <input placeholder="Seu nome" id="inp_nome">
+    <p></p>
+    <input placeholder="Qtd de Dramas" id="inp_qtd">
+    <p></p>
+    <button onclick="simula()">Nível</button>
+    <p></p>
+    <div id="ver"></div> 
+
+</body>
+</html>
+<script>
+    function simula(){
+
+        // var name = inp_nome.value
+        var quant = Number(inp_qtd.value)
+        ver.innerHTML = ``
+
+        if(quant == "" || quant == 0){
+            alert(`Campo vazio ou valor inválido!!`)
+        }
+        if(quant >= 1 && quant <=10){
+            console.log(` 1° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="https://pa1.narvii.com/7260/070052421301692256cacea1c1c411d6ede2197er1-275-155_hq.gif" style="width: 100px;"> <p></p>`
+            ver.innerHTML += `Aqui está uma <a href="https://mydramalist.com/">Lista</a>. <p></p>`
+        } 
+        if(quant > 10 && quant <=20){
+            console.log(` 2° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="https://baucinemahome.files.wordpress.com/2019/04/10ff5bb31f8ebcff38fbc2a81820c059.gif?w=364" style="width: 100px;"> <p></p>`
+        }
+        if(quant > 20  && quant <=30){
+            console.log(` 3° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="https://i.pinimg.com/originals/85/1a/f7/851af7c31b9d6bd10a976f534159f680.gif" style="width: 100px;"> <p></p>`
+        }
+        if(quant > 30  && quant <=40){
+            console.log(` 4° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src=" " style="width: 100px;"> <p></p>`
+        }
+        if(quant > 40  && quant <= 50){
+            console.log(` 5° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src=" " style="width: 100px;"> <p></p>`
+        }
+        if(quant > 50  && quant <= 60){
+            console.log(` 6° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src=" " style="width: 100px;"> <p></p>`
+        }
+        if(quant > 60  && quant <= 70){
+            console.log(` 7° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src=" " style="width: 100px;"> <p></p>`
+        }
+        if(quant > 70  && quant <= 80){
+            console.log(` 8° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src=" " style="width: 100px;"> <p></p>`
+        }
+        if(quant > 80  && quant <= 90){
+            console.log(` 9° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src=" " style="width: 100px;"> <p></p>`
+        }
+        if(quant > 100){
+            console.log(` 10° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src=" " style="width: 100px;"> <p></p>`
+        }
+
+        /* AJUSTAR Q QUANTIDADE DE IF'S PARA DIMINUIR O CÓDIGO QUE ESTÁ MUITO EXTENSO */
+
+        /* var count = quant <= 10 ? `Nivél 1` : `Não conhece a cultura`
+        var count = quant >= 11 && quant <= 20 ? `Nivél 2` : `Está no caminho`
+        ver.innerHTML = count */
+        // Rafaela Dias (SIS)
+    }
+</script>
