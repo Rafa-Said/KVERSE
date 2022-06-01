@@ -5,18 +5,15 @@ CREATE DATABASE kverse;
 USE kverse;
 
 CREATE TABLE votacao (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    Romance INT,
-    Acao INT,
-    Comedia INT
+idVotacao int, 
+tipoGenero VARCHAR(45)
 );
-
 CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(45),
     Cel CHAR(15),
     Email VARCHAR(45),
-    Senha CHAR(20),
+    Senha VARBINARY(100),
 	fk_votacao INT,
     FOREIGN KEY (fk_votacao) REFERENCES votacao (id)
 )  AUTO_INCREMENT=10;
@@ -30,7 +27,25 @@ CREATE TABLE aviso (
         REFERENCES usuario (id)
 );
 
+INSERT INTO votacao (tipoGenero) VALUES 
+('Romance'),
+('Ação'),
+('Comédia');
+
+INSERT INTO usuario (Nome, Cel, Email, Senha) VALUES 
+();
+
+ALTER TABLE votacao ADD FOREIGN KEY (fkUsuario) REFERENCES usuario (id);
+
+UPDATE votacao SET fkUsuario = 1 WHERE  idVotacao = 1;
+UPDATE votacao SET fkUsuario = 2 WHERE  idVotacao = 2;
+UPDATE votacao SET fkUsuario = 3 WHERE  idVotacao = 3;
+
 SELECT 
-    *
+    Email, md5(Senha)
 FROM
     usuario;
+    
+    SELECT Email, cast(aes_encrypt(senha, 'chavesegura')) FROM usuario;
+    
+
