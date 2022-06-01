@@ -9,7 +9,7 @@ USE acquatec;
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
-	dtnasc date,
+	cel char(15),
 	email VARCHAR(50),
 	senha VARCHAR(50)
 );

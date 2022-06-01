@@ -17,6 +17,7 @@
     <p></p>
     <button onclick="simula()">Nível de Fã</button>
     <p></p>
+    <div id="see"></div>
     <div id="ver"></div>
 
 </body>
@@ -27,9 +28,24 @@
     const nomes = []
     const add = []
 
-    function simula() {
+    function registra() {
 
-        ver.innerHTML += ` `
+        /* ver.innerHTML = ` ` */
+        let n = (inp_nome.value) /* n = nome */
+
+        if (n.length > 0) {
+            nomes.push(inp_nome.value)
+        } else {
+            alert(`Campo Vazio!!`)
+        }
+
+        /* p de posição do nome */
+        for (let p = 0; p < nomes.length; p++) {
+            see.innerHTML = `${nomes[p]} <br>`
+        }
+    }
+
+    function simula() {
         let quant = Number(inp_qtd.value) / 100
 
         if (quant > 0) {
@@ -37,50 +53,36 @@
         } else {
             alert(`Campo Vazio!!`)
         }
+        /*  for (let i = 0; i < add.length; i++) {} */
 
-        if (quant > 1 && quant < 10) {
+        if (add.length > 1 && add.length < 10) {
+            ver.innerHTML += ` `
             console.log(` 1° IF`)
-            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-            ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
+            ver.innerHTML += `Seu nível é ${add[0]}%. <p></p>`
+            ver.innerHTML += `<img src="https://pa1.narvii.com/6944/2af7dfcc9fe3f6afdc8f821898a6649595d332b4r1-352-300_hq.gif" style="width:100px;"> <p></p>`
             ver.innerHTML += `Aqui está uma <a href="https://mydramalist.com/">Lista</a>. <p></p>`
-        } if (quant > 10 && quant <= 30) {
-            console.log(` 2° IF`)
-            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-            ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-        } if (quant > 30 && quant <= 60) {
-            console.log(` 3° IF`)
-            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-            ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-        } if (quant > 60 && quant <= 90) {
-            console.log(` 4° IF`)
-            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-            ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-        } if (quant > 90 && quant <= 100) {
-            console.log(` 5° IF`)
-            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-            ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-        } if (quant > 100) {
-            console.log(` 6° IF`)
-            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-            ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
         }
-    }
 
-    function registra() {
-
-        ver.innerHTML = ` `
-        let n = (inp_nome.value) /* n = nome */
-
-        if (n.length > 0) {
-            nomes.push(inp_nome.value)
-        } else {
-            alert(`Campo Vazio!!`)
-        } 
-
-        /* p de posição do nome */
-        for (let p = 0; p < nomes.length; p++) {
-
-            ver.innerHTML = `${nomes[p]} <br>`
-        }
+        /* else if (quant > 10 && quant <= 30) {
+           console.log(` 2° IF`)
+           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
+       } else if (quant > 30 && quant <= 60) {
+           console.log(` 3° IF`)
+           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
+       } else if (quant > 60 && quant <= 90) {
+           console.log(` 4° IF`)
+           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
+       } else if (quant > 90 && quant <= 100) {
+           console.log(` 5° IF`)
+           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
+       } else if (quant > 100) {
+           console.log(` 6° IF`)
+           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
+       } */
     }
 </script>
