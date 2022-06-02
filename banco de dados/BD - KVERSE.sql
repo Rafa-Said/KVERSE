@@ -4,18 +4,12 @@
 CREATE DATABASE kverse;
 USE kverse;
 
-CREATE TABLE votacao (
-idVotacao int, 
-tipoGenero VARCHAR(45)
-);
 CREATE TABLE usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(45),
     Cel CHAR(15),
     Email VARCHAR(45),
-    Senha VARBINARY(100),
-	fk_votacao INT,
-    FOREIGN KEY (fk_votacao) REFERENCES votacao (id)
+    Senha VARBINARY(100)
 )  AUTO_INCREMENT=10;
 
 CREATE TABLE aviso (
@@ -27,25 +21,44 @@ CREATE TABLE aviso (
         REFERENCES usuario (id)
 );
 
-INSERT INTO votacao (tipoGenero) VALUES 
-('Romance'),
-('Ação'),
-('Comédia');
+DROP TABLE 	voto;
+
+CREATE TABLE voto (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    titulo INT,
+    titulo2 INT,
+    fk_usuario INT,
+    FOREIGN KEY (fk_usuario)
+        REFERENCES usuario (id)
+);
+
+CREATE TABLE usuarionota ( -- ESTÁ TABELA É ASSOCIATIVA, OU SEJA TEM A FK DE DUAS OUTRAS TABELA E É PRIMARY KEY
+    fk_usuario INT,
+    FOREIGN KEY (fk_usuario)
+        REFERENCES usuario (id),
+    fk_nota INT,
+    FOREIGN KEY (fk_nota)
+        REFERENCES nota (id),
+	PRIMARY KEY (fk_usuario, fk_nota),
+    descricao VARCHAR(300),
+    momento DATETIME
+);
+
+SELECT * FROM usuario;
+SELECT * FROM aviso;
+SELECT * FROM voto;
 
 INSERT INTO usuario (Nome, Cel, Email, Senha) VALUES 
-();
+('Sophie Silva', '11 98553-8023', 'sophie.s@gmail.com', '123');
 
-ALTER TABLE votacao ADD FOREIGN KEY (fkUsuario) REFERENCES usuario (id);
+INSERT INTO voto (titulo, fk_usuario, fk_nota, momento) VALUES 
+(5, 10, 1, '2022-05-04 10:00:00');
 
-UPDATE votacao SET fkUsuario = 1 WHERE  idVotacao = 1;
-UPDATE votacao SET fkUsuario = 2 WHERE  idVotacao = 2;
-UPDATE votacao SET fkUsuario = 3 WHERE  idVotacao = 3;
-
+-- Ainda não está sendo usado --
 SELECT 
-    Email, md5(Senha)
+    Email, MD5(Senha)
 FROM
-    usuario;
-    
-    SELECT Email, cast(aes_encrypt(senha, 'chavesegura')) FROM usuario;
+    usuario
+
     
 
