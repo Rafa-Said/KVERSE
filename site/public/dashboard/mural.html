@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../img/logo.icon" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,13 +14,11 @@
 
 </head>
 
-<body> <!-- onload="validarSessao(), atualizarFeed()" style="background-color: #161618;" -->
-
+<body>
+    <!-- onload="validarSessao(), atualizarFeed()" style="background-color: #161618;" -->
     <!-- <body onload="validarSessao()"> -->
-        
+
     <div class="janela">
-
-
         <div class="header-left">
 
             <img src="../img/Logo3.png" style="width:200px;">
@@ -43,10 +41,10 @@
 
             <div class="btn-nav">
                 <a href="./mural.html">
-                <h3>Fórum</h3>
+                    <h3>Fórum</h3>
                 </a>
             </div>
-            
+
             <div class="btn-nav">
                 <a href="./muraltest.html">
                     <h3>Votação 2</h3>
@@ -55,62 +53,49 @@
 
             <div class="btn-logout" onclick="limparSessao()">
                 <a href="../index.html">
-                <h3>Sair</h3>
-            </a>
+                    <h3>Sair</h3>
+                </a>
             </div>
-
         </div>
 
         <div class="dash-right">
 
             <div class="avisos">
                 <div class="container">
-                    <h1>Fórum de Discussão</h1>
+                    <h1>Publicar um aviso</h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
                                 Título:
-                                <br><br>
+                                <br>
                                 <input name="titulo" id="titulo" maxlength="100" type="text">
                             </label>
-                            <br><br><br>
+                            <br>
                             <label>
-                                Descrição (max. de 255 caracteres):
-                                <br><br>
+                                Descrição (máximo de 250 caracteres):
+                                <br>
                                 <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             </label>
-                            <br><br><br>
+                            <br>
                             <button>Enviar</button>
                         </form>
                     </div>
+                    <h1>Edição</h1>
                     <div class="div-results">
                         <div id="feed_container" class="feed-container">
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- MODAL -->
-            <!-- <div id="div_modal" class="div-modal">
-                <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
-                </div>
-                <div id="modal_container" class="modal-container">
-                    <button class="btn-fechar-modal" onclick="fecharModal()">X</button>
-                </div>
-            </div> -->
-
-            <!-- AGUARDAR -->
-            <!-- <div id="div_aguardar" class="div-aguardar">
-                <img src="./assets/aguarde-pink3.gif" id="img_aguarde">
-            </div>  -->
-
         </div>
     </div>
+
 </body>
 
 </html>
 
 <script>
-    
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function limparFormulario() {
@@ -125,7 +110,7 @@
             descricao: form_postagem.descricao.value
         }
 
-        fetch(`/aviso/publicar/${idUsuario}`, { /* VERIFICAR ERRO QUE ESTÁ DANDO QUANDO CHEGA NO FETCH */
+        fetch(`/avisos/publicar/${idUsuario}`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"

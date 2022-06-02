@@ -93,9 +93,9 @@
 
     verificar_autenticacao();
 
-    function alterarTitulo(fk_usuario, fk_nota) {
+    function alterarTitulo(idAquario) {
         var titulonota = document.getElementById("titulonota")
-        titulonota.innerHTML = "Média de <span style='color: #e6005a'>  Notas" + fk_usuario, fk_nota + "</span>"
+        titulonota.innerHTML = "Média de <span style='color: #e6005a'>  Notas" + idAquario + "</span>"
     }
 
     // O gráfico é construído com três funções:
@@ -109,20 +109,20 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(fk_usuario, fk_nota) {
-        alterarTitulo(fk_usuario, fk_nota)
+    function obterDadosGrafico(idAquario) {
+        alterarTitulo(idAquario)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/publicar/:idUsuario ${fk_usuario, fk_nota}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/publicar/:idUsuario ${idAquario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, fk_usuario, fk_nota);
+                    plotarGrafico(resposta, idAquario);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -136,7 +136,7 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, fk_usuario, fk_nota) {
+    function plotarGrafico(resposta, idAquario) {
         console.log('iniciando plotagem do gráfico...');
 
         var dados = {
@@ -164,7 +164,7 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             dados.labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.titulo);
+            dados.datasets[0].data.push(registro.umidade);
             dados.datasets[1].data.push(registro.temperatura);
         }
 
@@ -212,7 +212,7 @@
             }
         });
 
-        setTimeout(() => atualizarGrafico(fk_usuario, fk_nota, dados), 2000);
+        setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
     }
 
 
@@ -221,9 +221,9 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(fk_usuario, fk_nota, dados) {
+    function atualizarGrafico(idAquario, dados) {
 
-        fetch(`/medidas/tempo-real/${fk_usuario, fk_nota}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
@@ -243,12 +243,12 @@
                     window.grafico_linha.update();
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fk_usuario, fk_nota, dados), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(fk_usuario, fk_nota, dados), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
             }
         })
             .catch(function (error) {
