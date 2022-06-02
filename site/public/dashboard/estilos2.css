@@ -39,6 +39,10 @@ body {
   width: 100%;
 }
 
+.dash-right .avisos .container .div-form #form_postagem2 {
+  width: 30%;
+}
+
 .dash-right .avisos .div-form label {
   width: 100%;
 }
@@ -177,14 +181,14 @@ body {
 }
 
 .card {
-  margin: 2%;
+  /* margin: 2%; */
   width: 40%;
   flex-wrap: wrap;
   display: flex;
   text-align: center;
   height: 180px;
   justify-content: right;
-  background-color: #212124;
+  background-color: #4747deb4;
   font-size: 20px;
 }
 

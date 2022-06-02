@@ -15,7 +15,8 @@
 
 </head>
 
-<body onload="validarSessao(), atualizacaoPeriodica()"> <!--  -->
+<body>
+    <!-- onload="validarSessao(), atualizacaoPeriodica()" -->
 
     <div class="janela">
 
@@ -42,15 +43,21 @@
 
             <div class="btn-nav">
                 <a href="./mural.html">
-                <h3>Fórum</h3>
+                    <h3>Fórum</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+                <a href="./muraltest.html">
+                    <h3>Votação 2</h3>
                 </a>
             </div>
 
 
             <div class="btn-logout" onclick="limparSessao()">
                 <a href="../index.html">
-                <h3>Sair</h3>
-            </a>
+                    <h3>Sair</h3>
+                </a>
             </div>
 
         </div>
@@ -81,13 +88,24 @@
 
             <div class="cards">
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>Votação</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_1">-°C</p>
+                        <span class="tipo_campo">Genêro: </span>
+                        <input id="in_genero" type="text">
+                        <button class="btn" onclick="votando()">Votar</button>
+
+                        <!-- <span class="tipo_campo">Ação</span>
+                        <input id="in_acao" type="checkbox">
+
+                        <span class="tipo_campo">Comédia</span>
+                        <input id="in_comedia" type="checkbox">
+                        <br><br> -->
+
                     </div>
-                    <div class="cor-alerta" id="card_1"></div>
+                    <!-- <div class="cor-alerta" id="card_1"></div> -->
                 </div>
-                <div class="card">
+
+                <!-- <div class="card">
                     <h1>Aquário 1</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_2">-°C</p>
@@ -108,7 +126,7 @@
                         <p id="temp_aquario_4">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_4"></div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -120,6 +138,37 @@
 
 <script>
 
+    function votando() {
+        aguardar();
+
+        var generoVar = Number(in_genero.value);
+
+
+        if (generoVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Preencha o Campo!!)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/medidas/votando", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                generoServer: generoVar
+            })
+        })
+    }
+
     function atualizacaoPeriodica() {
         obterdados(1);
         obterdados(2);
@@ -127,14 +176,14 @@
         obterdados(4);
 
         function sendData() {
-			var http = new XMLHttpRequest();
-			http.open('POST', 'http://localhost:3000/api/sendData', false);
-			http.send(null);
-		}
+            var http = new XMLHttpRequest();
+            http.open('POST', 'http://localhost:3000/api/sendData', false);
+            http.send(null);
+        }
 
         setInterval(() => {
-			sendData();
-		}, 2000);
+            sendData();
+        }, 2000);
         setTimeout(atualizacaoPeriodica, 5000);
     }
 

@@ -14,7 +14,7 @@
 
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;"> <!--  -->
+<body> <!-- onload="validarSessao(), atualizarFeed()" style="background-color: #161618;" -->
 
     <!-- <body onload="validarSessao()"> -->
         
@@ -44,6 +44,12 @@
             <div class="btn-nav">
                 <a href="./mural.html">
                 <h3>Fórum</h3>
+                </a>
+            </div>
+            
+            <div class="btn-nav">
+                <a href="./muraltest.html">
+                    <h3>Votação 2</h3>
                 </a>
             </div>
 
@@ -119,7 +125,7 @@
             descricao: form_postagem.descricao.value
         }
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
+        fetch(`/aviso/publicar/${idUsuario}`, { /* VERIFICAR ERRO QUE ESTÁ DANDO QUANDO CHEGA NO FETCH */
             method: "post",
             headers: {
                 "Content-Type": "application/json"
