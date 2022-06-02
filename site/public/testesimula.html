@@ -30,7 +30,6 @@
 
     function registra() {
 
-        /* ver.innerHTML = ` ` */
         let n = (inp_nome.value) /* n = nome */
 
         if (n.length > 0) {
@@ -46,43 +45,46 @@
     }
 
     function simula() {
-        let quant = Number(inp_qtd.value) / 100
 
+        ver.innerHTML = ` `
+
+        let quant = Number(inp_qtd.value)
         if (quant > 0) {
             add.push(inp_qtd.value)
         } else {
             alert(`Campo Vazio!!`)
         }
-        /*  for (let i = 0; i < add.length; i++) {} */
 
-        if (add.length > 1 && add.length < 10) {
-            ver.innerHTML += ` `
+
+        if (quant > 1 && quant < 50) {
+
             console.log(` 1° IF`)
-            ver.innerHTML += `Seu nível é ${add[0]}%. <p></p>`
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
             ver.innerHTML += `<img src="https://pa1.narvii.com/6944/2af7dfcc9fe3f6afdc8f821898a6649595d332b4r1-352-300_hq.gif" style="width:100px;"> <p></p>`
             ver.innerHTML += `Aqui está uma <a href="https://mydramalist.com/">Lista</a>. <p></p>`
+
+        } else if (quant > 51 && quant <= 100) {
+            console.log(` 2° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="https://dramasrevise.files.wordpress.com/2021/04/dbdbff8048ad0a984b702901bd891f7c841b228dr1-320-172_hq.gif" style="width: 100px;"> <p></p>`
         }
 
-        /* else if (quant > 10 && quant <= 30) {
-           console.log(` 2° IF`)
-           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-       } else if (quant > 30 && quant <= 60) {
-           console.log(` 3° IF`)
-           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-       } else if (quant > 60 && quant <= 90) {
-           console.log(` 4° IF`)
-           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-       } else if (quant > 90 && quant <= 100) {
-           console.log(` 5° IF`)
-           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-       } else if (quant > 100) {
-           console.log(` 6° IF`)
-           ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
-           ver.innerHTML += `<img src="" style="width: 100px;"> <p></p>`
-       } */
+        else if (quant >= 101 && quant <= 120) {
+            console.log(` 3° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="http://4.bp.blogspot.com/-Tpq-kpem8Hk/VRp2efoPcHI/AAAAAAAAAi0/v_hB5heimUE/s1600/tumblr_mg3tk09n5V1r0kgvso1_500.gif" style="width: 100px;"> <p></p>`
+
+        } else if (quant >= 121 && quant <= 150) {
+            console.log(` 4° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4MahTww5c1FOr1DZYaolljfwL783qeGHWgbG9R-z4g_dgVuSdjMJY0DovOIIQvMqrO-U&usqp=CAU" style="width: 100px;"> <p></p>`
+        } else if (quant >= 151 && quant <= 200) {
+            console.log(` 5° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="http://cdn.makeagif.com/media/3-31-2015/Amraxt.gif" style="width: 100px;"> <p></p>`
+        } else {
+            ver.innerHTML += `Quem é você. <p></p>`
+        }
     }
+
 </script>
