@@ -1,4 +1,4 @@
-var avisoModel = require("../models/avisosModel");
+var avisoModel = require("../models/avisoModel");
 
 function testar(req, res) {
     console.log("ENTRAMOS NO avisoController");
@@ -67,7 +67,7 @@ function pesquisarDescricao(req, res) {
 
 function publicar(req, res) {
     var titulo = req.body.titulo;
-    var descricao = req.body.titulo2;
+    var descricao = req.body.descricao;
     var idUsuario = req.params.idUsuario;
 
     if (titulo == undefined) {

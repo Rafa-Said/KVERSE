@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-var avisoController = require("../controllers/avisosController");
+var avisoController = require("../controllers/avisoController");
 
 router.get("/", function (req, res) {
     avisoController.testar(req, res);
