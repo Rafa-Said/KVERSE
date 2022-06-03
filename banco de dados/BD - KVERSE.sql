@@ -10,7 +10,9 @@ CREATE TABLE usuario (
     Cel CHAR(15),
     Email VARCHAR(45),
     Senha VARBINARY(100)
-)  AUTO_INCREMENT=10;
+)  AUTO_INCREMENT=10;  
+
+select * from usuario;
 
 CREATE TABLE aviso (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -20,8 +22,7 @@ CREATE TABLE aviso (
     FOREIGN KEY (fk_usuario)
         REFERENCES usuario (id)
 );
-
-DROP TABLE 	voto;
+select * from aviso;
 
 CREATE TABLE voto (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,7 +31,12 @@ CREATE TABLE voto (
     fk_usuario INT,
     FOREIGN KEY (fk_usuario)
         REFERENCES usuario (id)
-);
+); 
+select * from voto;
+
+select Nome, count(titulo) as 'Qtd de Votos' from voto join usuario on fk_usuario = usuario.id group by fk_usuario; -- Qtd de votos por usuário
+
+-- ESTÁ TABELA AINDA NÃO FOI USADA -- 
 
 CREATE TABLE usuarionota ( -- ESTÁ TABELA É ASSOCIATIVA, OU SEJA TEM A FK DE DUAS OUTRAS TABELA E É PRIMARY KEY
     fk_usuario INT,
@@ -44,17 +50,6 @@ CREATE TABLE usuarionota ( -- ESTÁ TABELA É ASSOCIATIVA, OU SEJA TEM A FK DE D
     momento DATETIME
 );
 
-SELECT * FROM usuario;
-SELECT * FROM aviso;
-SELECT * FROM voto;
-
-INSERT INTO usuario (Nome, Cel, Email, Senha) VALUES 
-('Sophie Silva', '11 98553-8023', 'sophie.s@gmail.com', '123');
-
-INSERT INTO voto (titulo, fk_usuario, fk_nota, momento) VALUES 
-(5, 10, 1, '2022-05-04 10:00:00');
-
--- Ainda não está sendo usado --
 SELECT 
     Email, MD5(Senha)
 FROM
