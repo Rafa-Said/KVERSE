@@ -14,11 +14,12 @@
 
 </head>
 
-<body>
-    <!-- onload="validarSessao(), atualizarFeed()" style="background-color: #161618;" -->
+<body> <!-- onload="validarSessao(), atualizarFeed()" style="background-color: #161618;" -->
     <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
+
+
         <div class="header-left">
 
             <img src="../img/Logo3.png" style="width:200px;">
@@ -35,7 +36,7 @@
 
             <div class="btn-nav">
                 <a href="dashboard.html">
-                    <h3>Votação</h3>
+                    <h3>Gráficos</h3>
                 </a>
             </div>
 
@@ -47,7 +48,7 @@
 
             <div class="btn-nav">
                 <a href="./muraltest.html">
-                    <h3>Votação 2</h3>
+                    <h3>Votação</h3>
                 </a>
             </div>
 
@@ -62,7 +63,7 @@
 
             <div class="avisos">
                 <div class="container">
-                    <h1>Publicar um aviso</h1>
+                    <h1>Fórum</h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
@@ -89,13 +90,12 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
 
 <script>
-
+    
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function limparFormulario() {
