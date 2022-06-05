@@ -31,7 +31,7 @@
 
             <div class="btn-nav">
                 <a href="cards.html">
-                    <h3>Dramas</h3>
+                    <h3>Lista de Dramas</h3>
                 </a>
             </div>
 
@@ -43,16 +43,9 @@
 
             <div class="btn-nav">
                 <a href="./mural.html">
-                    <h3>Fórum</h3>
+                    <h3>Pesquisa</h3>
                 </a>
             </div>
-
-            <div class="btn-nav">
-                <a href="./muraltest.html">
-                    <h3>Votação</h3>
-                </a>
-            </div>
-
 
             <div class="btn-logout" onclick="limparSessao()">
                 <a href="../index.html">
@@ -87,87 +80,38 @@
             </div>
 
             <div class="cards">
-                <div class="card">
-                    <h1>Votação</h1>
-                    <div class="temperatura">
-                        <span class="tipo_campo">Genêro: </span>
-                        <input id="in_genero" type="text">
-                        <button class="btn" onclick="votando()">Votar</button>
-
-                        <!-- <span class="tipo_campo">Ação</span>
-                        <input id="in_acao" type="checkbox">
-
-                        <span class="tipo_campo">Comédia</span>
-                        <input id="in_comedia" type="checkbox">
-                        <br><br> -->
-
-                    </div>
-                    <!-- <div class="cor-alerta" id="card_1"></div> -->
+                <div class="card_1">
+                    <h1>Top 10 K-Dramas</h1>
+                    <ul>
+                        <li>Bad and Crazy</li>
+                        <li>Born Again</li>
+                        <li>D.P</li>                    
+                        <li>Goblin</li>
+                        <li>Hotel Del Luna</li>
+                        <li>Kill it</li>
+                        <li>My Name</li>
+                        <li>My Strange Hero</li>
+                        <li>Penthouse I</li>
+                        <li>True Beauty</li>
+                    </ul>
                 </div>
-
-                <!-- <div class="card">
-                    <h1>Aquário 1</h1>
-                    <div class="temperatura">
-                        <p id="temp_aquario_2">-°C</p>
-                    </div>
-                    <div class="cor-alerta" id="card_2"></div>
-
+                <div class="card_2">
+                    <h1>Onde assitir?</h1>
+                    <ul>                     
+                        <li><a href="https://www.netflix.com/br/" target="_blank">Netflix</a></li>
+                        <li><a href="https://www.viki.com/?locale=pt" target="_blank">Viki</a></li>
+                        <li><a href="https://www.iq.com/?lang=pt_br" target="_blank">iQiyi</a></li>
+                        <li><a href="https://magicdramafansub.com/" target="_blank">Magic Drama Fansubs</a></li>
+                        <li><a href="https://wetv.vip/" target="_blank">We TV</a></li>
+                        <li><a href="https://wetv.vip/" target="_blank">Kocowa</a></li>
+                    </ul>    
                 </div>
-                <div class="card">
-                    <h1>Aquário 1</h1>
-                    <div class="temperatura">
-                        <p id="temp_aquario_3">-°C</p>
-                    </div>
-                    <div class="cor-alerta ideal" id="card_3"></div>
-                </div>
-                <div class="card">
-                    <h1>Aquário 1</h1>
-                    <div class="temperatura">
-                        <p id="temp_aquario_4">-°C</p>
-                    </div>
-                    <div class="cor-alerta" id="card_4"></div>
-                </div> -->
-
             </div>
-
         </div>
     </div>
-
-
 </body>
 
 <script>
-
-    function votando() {
-        aguardar();
-
-        var generoVar = Number(in_genero.value);
-
-
-        if (generoVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Preencha o Campo!!)";
-
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        // Enviando o valor da nova input
-        fetch("/medidas/votando", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                generoServer: generoVar
-            })
-        })
-    }
 
     function atualizacaoPeriodica() {
         obterdados(1);

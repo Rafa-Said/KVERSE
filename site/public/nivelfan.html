@@ -23,7 +23,6 @@
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="cadastro.html">CADASTRO</a></li>
                 <li><a href="login.html">PORTAL</a></li>
-                <li><a href="reference.html">REFERÊNCIA</a></li>
                 <li><a href="nivelfan.html">NÍVEL DE FÃ</a></li>
             </ul>
             <a href="index.html"><img class="img1" src="img/Logo3.png"></a>
@@ -33,16 +32,21 @@
     <div class="banner">
         <div class="container">
             <div class="card">
-                <h2>Simulador</h2>
-                <div class="formulario">
-                    <span class="tipo_campo">Nome:</span>
-                    <input id="in_nomeuser">
-
-                    <span class="tipo_campo">Nível:</span>
-                    <input id="in_nivel">
-
-                    <button class="btn" onclick="simular()">Nível</button>
-                    
+                <h4>Nivel de Dorameira</h4>
+                <div class="div_center">
+                    Seu nome:
+                    <br>
+                    <input id="inp_nome" type="text" placeholder="Digitie seu nome">
+                    <br>
+                    Quantos dramas já assistiu?
+                    <br>
+                    <input id="inp_qtd" type="text" placeholder="Digite a quantidade">
+                    <br>
+                    <button class="btn" onclick="simula()">Nível</button>
+                    <p></p>
+                    <div id="see"></div>
+                    <div id="ver"></div>
+                    <!-- <div id="campo"></div> -->
                 </div>
             </div>
         </div>
@@ -62,27 +66,66 @@
 
 <script>
 
-    /* var drama = []
+    const nomes = []
+    const add = []
 
     function simula() {
+        /* Adiciona apenas uma nome por vez */
+        ver.innerHTML = ` `
+        let n = (inp_nome.value) /* n = nome */
 
-        drama.push(in_dramas.value)
-
-        resultado.innerHTML = ``
-
-        for (var posicao = 0; posicao < drama.length; posicao++) {
-
-            if (drama.length > 0) {
-                resultado.innerHTML += `Favorito é ${drama[0]}<br>`
-                resultado.style.display = 'inline'
-            } if (drama.length) {
-                resultado.innerHTML += ` Ùltimo que assitiu é ${[drama[drama.length - 1]]}`
-                resultado.style.display = 'inline'
-            }
+        if (n.length > 0) {
+            nomes.push(inp_nome.value)
+        } else {
+            /* setTimeout(() => {
+                campo.innerHTML += `Campo nome vazio`;
+            }, "1000") */
+            alert(`Campo nome vazio`)
+        } for (let p = 0; p < nomes.length; p++) { /* p de posição do nome */
+            see.innerHTML = `${nomes[p]} <br>`
         }
-    } */
+        /* Seleciona conforme a quantidade de Episódios*/
+        ver.innerHTML = ` `
+        let quant = Number(inp_qtd.value) * 0.5
+
+        if (quant > 0) {
+            add.push(inp_qtd.value)
+        } else {
+            /* setTimeout(() => {
+                campo.innerHTML = `Campo numérico em branco`;
+            }, "2000")
+            setTimeout(() => {
+                campo.innerHTML = `Preencha todos os campos!!`;
+            }, "3000") */
+            alert(`Campo numérico vazio`)
+        } 
+        
+                                                                    /* ARRUMAR OS IFS ESTÃO COM ERRO */
+
+        if (quant > 1 && quant <= 50) {
+            console.log(` 1° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="../public/fan/nivel1.gif" style="width: 100px;"> <p></p>`
+            ver.innerHTML += `Aqui está uma <a href="https://mydramalist.com/">Lista</a>. <p></p>`
+
+        } else if (quant > 51 && quant <= 100) {
+            console.log(` 2° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="../public/fan/nivel2.gif" style="width: 100px;"> <p></p>`
+        } else if (quant >= 101 && quant <= 120) {
+            console.log(` 3° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="../public/fan/nivel3.gif" style="width: 100px;"> <p></p>`
+
+        } else if (quant >= 121 && quant <= 150) {
+            console.log(` 4° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="../public/fan/nivel4.giff" style="width: 100px;"> <p></p>`
+        } else if (quant >= 151 && quant <= 200) {
+            console.log(` 5° IF`)
+            ver.innerHTML += `Seu nível é ${quant}%. <p></p>`
+            ver.innerHTML += `<img src="../public/fan/nivel5.gif" style="width: 100px;"> <p></p>`
+        }
+    }
+
 </script>
-<!-- 
-    <img src="http://pa1.narvii.com/6982/0e675315f476f127c80a674bb76157ad8986fcc7r1-500-275_00.gif" style="width:100px;"> 
-    <img src="https://pa1.narvii.com/6995/933c75b8802ae4c06e2997bbd2f06399ebb50c41r1-600-338_hq.gif" style="width:100px;">
--->

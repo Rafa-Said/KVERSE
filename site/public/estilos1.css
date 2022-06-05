@@ -47,7 +47,7 @@ body {
 }
 
 .navbar {
-  width: 600px;
+  width: 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -157,13 +157,18 @@ body {
 
 .banner .container .card {
   background-color: #a69ca573;
-  height: fit-content;
+  height: auto;
   width: 400px;
   display: flex;
   flex-direction: column;
   color: #bfb8b9;
   align-items: center;
   border-radius: 4px;
+}
+
+.div_center{
+  font-size: 20px;
+  text-align: center;
 }
 
 .card {
@@ -212,8 +217,8 @@ button {
 }
 
 .formulario .tipo_campo {
-  font-size: 20px;
-  font-weight: 600 !important;
+  font-size: 10px;
+  font-weight: 500 !important;
 }
 
 .formulario {
@@ -229,6 +234,12 @@ input {
   border-radius: 10px 0px 10px 0px;
 }
 
+.nivel1{
+padding: 10px;
+text-align: center;
+font-size: 14px;
+}
+
 .btn {
   font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
   border: 0;
@@ -238,7 +249,7 @@ input {
   padding: 10px 15px;
   color: #BFB8B9;
   background-color: #212226;
-  width: 120px;
+  width: auto;
   align-self: center;
   margin-top: 5px;
 }
@@ -252,31 +263,6 @@ input {
 .loading-div img {
   height: 50px;
   width: 50px;
-}
-
-.unique {
-  display: flex;
-  flex-direction: row;
-  background-color: #717171;
-  width: auto;
-  padding: 10px;
-  color: #e6e3e4;
-}
-
-.div_princ {
-  width: 500px;
-  padding: 10px;
-  margin-left: 5vw;
-  border-radius: 10px;
-  background-color: #a69ca56e;
-}
-
-.div_sec {
-  width: 500px;
-  padding: 10px;
-  margin-left: 12vw;
-  border-radius: 10px;
-  background-color: #a69ca56e;
 }
 
 #img_naruto {

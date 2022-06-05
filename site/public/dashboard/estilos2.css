@@ -1,28 +1,28 @@
 body::-webkit-scrollbar {
-  width: 12px;               
+  width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-  background: #3B3C40;        
+  background: #3B3C40;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #BFB8B9;    
-  border-radius: 20px;       
-  border: 3px solid #3B3C40;  
+  background-color: #BFB8B9;
+  border-radius: 20px;
+  border: 3px solid #3B3C40;
 }
 
 /* PÁGINA DO FÓRUM */
- 
+
 *,
 body {
-  font-family: 'Arial Narrow','Franklin Gothic Medium', Arial, sans-serif;
+  font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
 }
 
 .dash-right .avisos {
   width: 100%;
   color: rgb(216, 216, 216);
-  font-family: 'Arial Narrow','Franklin Gothic Medium', Arial, sans-serif;
+  font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
 }
 
 .dash-right .avisos .container {
@@ -33,22 +33,21 @@ body {
 
 .dash-right .avisos .container .div-form {
   width: 100%;
+  font-size: 24px;
 }
 
 .dash-right .avisos .container .div-form #form_postagem {
   width: 100%;
 }
 
-/* .dash-right .avisos .container .div-form #form_postagem2 {
-  width: 30%;
-} */
-
 .dash-right .avisos .div-form label {
+  margin-left: 20vw;
   width: 100%;
 }
 
 .dash-right .avisos .div-form input {
-  width: 100%;
+  margin-left: 20vw;
+  width: 30%;
   border-radius: 5px;
 }
 
@@ -61,20 +60,21 @@ body {
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  font-family: 'Arial Narrow','Franklin Gothic Medium', Arial, sans-serif;
+  font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
   border: 1px solid #BFB8B9;
   border-radius: 5px;
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color:  #BFB8B9 ;
+  color: #BFB8B9;
   background-color: #212226;
   width: 120px;
+  margin-left: 25vw;
 }
 
 .publicacao-btn-editar {
   cursor: pointer;
-  font-family: 'Arial Narrow','Franklin Gothic Medium', Arial, sans-serif;
+  font-family: 'Arial Narrow', 'Franklin Gothic Medium', Arial, sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -96,7 +96,7 @@ body {
   padding: 20px;
 }
 
-.publicacao > *:not(:last-child) {
+.publicacao>*:not(:last-child) {
   padding: 0 0 10px 0;
 }
 
@@ -115,7 +115,7 @@ body {
   justify-content: flex-end;
 }
 
-.div-buttons > * {
+.div-buttons>* {
   margin-left: 30px;
 }
 
@@ -178,18 +178,44 @@ body {
   width: 100%;
   align-items: center;
   color: white;
+  justify-content: space-around;
+  margin: 20px;
 }
 
-.card {
-  /* margin: 2%; */
-  width: 40%;
-  flex-wrap: wrap;
+a{
+text-decoration: none;
+color: #BFB8B9;
+}
+
+ul{
+  color: #BFB8B9; 
+}
+
+.card_1 {
   display: flex;
-  text-align: center;
-  height: 180px;
-  justify-content: right;
-  background-color: #4747deb4;
+  flex-direction: column;
   font-size: 20px;
+  background-color: #465866b0;
+  width: 25%;
+  padding: 20px;
+  text-align: center;
+  margin-left: 2vw;
+  text-align: justify;
+  border-radius: 10px 0px 10px 0px;
+}
+
+.card_2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  background-color: #465866b0;
+  width: 25%;
+  height: 330px;
+  padding: 20px;
+  text-align: center; 
+  margin-right: 5vw;
+  text-align: justify;
+  border-radius: 10px 0px 10px 0px;
 }
 
 .card p {
@@ -200,12 +226,9 @@ body {
 }
 
 .cards h1 {
-  font-size: 22px;
-  width: 100%;
-  border-bottom: solid white 1px;
-  text-align: left;
-  font-weight: lighter;
-  margin: 20px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Arial Narrow','Franklin Gothic Medium', 'Arial', 'sans-serif';
 }
 
 .temperatura,
