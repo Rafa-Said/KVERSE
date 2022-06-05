@@ -1,6 +1,7 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+/* Criação de Cadastro, Aviso, Voto */
+
+-- DROP DATABASE kverse;
+-- DROP TABLE usuario;
 
 CREATE DATABASE kverse;
 USE kverse;
@@ -11,26 +12,29 @@ CREATE TABLE usuario (
     Cel CHAR(15),
     Email VARCHAR(45),
     Senha VARBINARY(100)
-)  AUTO_INCREMENT=10;
+);  
+
+CREATE TABLE voto (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    qtddrama INT,
+    fk_usuario INT,
+    FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+); 
 
 CREATE TABLE aviso (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(100),
     descricao VARCHAR(150),
     fk_usuario INT,
-    FOREIGN KEY (fk_usuario)
-        REFERENCES usuario (id)
+    FOREIGN KEY (fk_usuario) REFERENCES usuario (id)
 );
 
-CREATE TABLE voto (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    titulo INT,
-    titulo2 INT,
-    fk_usuario INT,
-    FOREIGN KEY (fk_usuario)
-        REFERENCES usuario (id)
-); select * from voto;
+select * from usuario;
+select * from voto;
+select * from aviso;
+select qtddrama, count(qtddrama) QtddeDramas from voto group by qtddrama;
 
+/* ------------------------------------------------------------------------------------------------------------------------- */
 
 /* para workbench - local - desenvolvimento */
 /* CREATE DATABASE acquatec;

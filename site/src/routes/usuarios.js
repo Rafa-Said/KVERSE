@@ -20,4 +20,12 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/publicar", function (req, res) {
+    usuarioController.publicar(req, res);
+}); /* Postando as informações que o usuário realizou no mural */
+
+router.get("/pesquisar/:descricao", function (req, res) {
+    usuarioController.pesquisarDescricao(req, res);
+}); /* Chamando a descrção feita pelo usuario em mural */
+
 module.exports = router;

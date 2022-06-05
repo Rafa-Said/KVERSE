@@ -44,7 +44,7 @@ function listarPorUsuario(req, res) {
         );
 }
 
-function pesquisarDescricao(req, res) {
+ function pesquisarDescricao(req, res) {
     var descricao = req.params.descricao;
 
     avisoModel.pesquisarDescricao(descricao)
@@ -66,18 +66,18 @@ function pesquisarDescricao(req, res) {
 }
 
 function publicar(req, res) {
-    var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
+    var qtd_dramas = req.body.qtd_dramas;
+    var qtd_ep = req.body.qtd_ep;
     var idUsuario = req.params.idUsuario;
 
-    if (titulo == undefined) {
+    if (qtd_dramas == undefined) {
         res.status(400).send("O título está indefinido!");
-    } else if (descricao == undefined) {
+    } else if (qtd_ep == undefined) {
         res.status(400).send("A descrição está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        avisoModel.publicar(qtd_dramas, qtd_ep, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -93,7 +93,7 @@ function publicar(req, res) {
     }
 }
 
-function editar(req, res) {
+/* function editar(req, res) {
     var novaDescricao = req.body.descricao;
     var idAviso = req.params.idAviso;
 
@@ -111,9 +111,9 @@ function editar(req, res) {
             }
         );
 
-}
+} */
 
-function deletar(req, res) {
+/* function deletar(req, res) {
     var idAviso = req.params.idAviso;
 
     avisoModel.deletar(idAviso)
@@ -129,14 +129,14 @@ function deletar(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
-}
+} */
 
 module.exports = {
     testar,
     listar,
     listarPorUsuario,
     pesquisarDescricao,
-    publicar,
-    editar,
-    deletar
+    publicar
+    /* editar,
+    deletar */
 }
