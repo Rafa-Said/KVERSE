@@ -157,16 +157,16 @@
 
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            dados.labels.push(registro.qtd_dramas);
-            dados.labels.push(registro.qtd_ep);
-            dados.datasets[0].data.push(registro.QtddeDramas);
-            dados.datasets[1].data.push(registro.QtddeEp);
+            dados.labels.push(registro.Nome);
+            // dados.labels.push(registro.qtd_ep);
+            dados.datasets[0].data.push(registro.QtdDramas);
+            dados.datasets[1].data.push(registro. QtdEpisódios);
         }
 
         console.log(JSON.stringify(dados));
 
         var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
+        window.grafico_linha = Chart.Bar(ctx, {
             data: dados,
             options: {
                 responsive: true,
