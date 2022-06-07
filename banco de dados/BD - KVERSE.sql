@@ -19,53 +19,36 @@ CREATE TABLE voto (
     FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 ); 
 
-select * from usuario;
-select * from voto;
+SELECT * FROM usuario;
+SELECT * FROM voto;
 
-select count(qtd_dramas) QtddeDramas, count(qtd_ep) QtdeEp  from voto group by fk_usuario ;
+SELECT 
+    Nome,
+    TRUNCATE(AVG(qtd_dramas), 1) QtddeDramas,
+    TRUNCATE(AVG(qtd_ep), 1) QtdeEp
+FROM
+    voto
+        JOIN
+    usuario ON fk_usuario = usuario.id
+GROUP BY fk_usuario;
 
-select Nome, count(qtd_dramas) as QtdDramas, count(qtd_ep) as QtdEpisódios 
-	from voto join usuario 
-		on fk_usuario = usuario.id group by fk_usuario;
+SELECT 
+    AVG(qtd_dramas) QtddeDramas, AVG(qtd_ep) QtdeEp
+FROM
+    voto
+GROUP BY fk_usuario;
 
--- ESTAS TABELAS AINDA NÃO FORAM USADAS -- 
-
-/*
-CREATE TABLE voto (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    qtd_drama INT,
-    qtd_ep INT,
-    fk_usuario INT,
-    FOREIGN KEY (fk_usuario)
-        REFERENCES usuario (id)
-);
-
-
-CREATE TABLE aviso (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    qtd_dramas VARCHAR(100),
-    qtd_ep VARCHAR(150),
-    fk_usuario INT,
-    FOREIGN KEY (fk_usuario) REFERENCES usuario (id)
-);
-*/
-
-CREATE TABLE usuarionota ( -- ESTÁ TABELA É ASSOCIATIVA, OU SEJA TEM A FK DE DUAS OUTRAS TABELA E É PRIMARY KEY
-    fk_usuario INT,
-    FOREIGN KEY (fk_usuario)
-        REFERENCES usuario (id),
-    fk_nota INT,
-    FOREIGN KEY (fk_nota)
-        REFERENCES nota (id),
-	PRIMARY KEY (fk_usuario, fk_nota),
-    descricao VARCHAR(300),
-    momento DATETIME
-);
+SELECT 
+    Nome,
+    COUNT(qtd_dramas) AS QtdDramas,
+    COUNT(qtd_ep) AS QtdEpisódios
+FROM
+    voto
+        JOIN
+    usuario ON fk_usuario = usuario.id
+GROUP BY fk_usuario;
 
 SELECT 
     Nome, Email, MD5(Senha)
 FROM
-    usuario
-
-    
-
+    usuario;
