@@ -12,7 +12,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #BFB8B9;
   border-radius: 20px;
   border: 3px solid #3B3C40;
-} 
+}
 
 /* Início do corpo do site */
 body {
@@ -52,6 +52,73 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  transition: all 0.5s;
+  border: 10px solid transparent;
+}
+
+.navbar :hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+#main {
+  width: 99vw;
+  height: auto;
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 14vw;
+  /* align-items: center; */
+  background-color: #3b3c4096;
+  justify-content: space-around;
+}
+
+#text1 {
+  width: 20vw;
+  height: 22vw;
+  display: flex;
+  padding: 10px;
+  color: aliceblue;
+  text-align: justify;
+  flex-direction: column;
+  background-color: #A69CA5;
+  border-radius: 10px 0px 10px 0px;
+}
+
+#text2 {
+  width: 22vw;
+  height: 24vw;
+  display: flex;
+  padding: 10px;
+  color: aliceblue;
+  text-align: justify;
+  flex-direction: column;
+  background-color: #A69CA5;
+  border-radius: 10px 0px 10px 0px;
+}
+
+#title1 {
+  text-align: center;
+}
+.div_c{
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+.image{
+  width: 180px;
+  margin-top: 4px;
+  margin-left: 2vw;
+}
+.image1{
+  width: 150px;
+  height: 150px;
+  margin-top: 4px;
+  margin-left: 2vw;
+  border-radius: 20vw;
+}
+#nome_per{
+  text-align: center;
 }
 
 /* BANNER */
@@ -86,9 +153,10 @@ body {
 .banner .container span {
   font-weight: 800;
 }
-#tudo{
+
+#tudo {
   background-color: #3b3c40;
-  display:flex;
+  display: flex;
   flex-direction: row-reverse;
 }
 
@@ -169,7 +237,8 @@ body {
   align-items: center;
   border-radius: 4px;
 }
-.div_center{
+
+.div_center {
   font-size: 20px;
   text-align: center;
 }
@@ -237,10 +306,10 @@ input {
   border-radius: 10px 0px 10px 0px;
 }
 
-.nivel1{
-padding: 10px;
-text-align: center;
-font-size: 14px;
+.nivel1 {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .btn {
@@ -255,7 +324,18 @@ font-size: 14px;
   width: auto;
   align-self: center;
   margin-top: 5px;
+  cursor: pointer;
 }
+/* .modal{
+  width: 400px;
+  height: 400px;
+  background-color: #32b9cd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: none; 
+} */
 
 .loading-div {
   width: 50px;
@@ -278,11 +358,11 @@ font-size: 14px;
   margin-left: 3.8vw;
 }
 
-.resposta{
+.resposta {
   width: auto;
   font-size: 30px;
   padding: 10px;
-  background-color:#3b3c4063;
+  background-color: #3b3c4063;
   color: #212226;
   border-radius: 10px;
 }

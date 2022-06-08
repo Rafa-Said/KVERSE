@@ -15,8 +15,8 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `SELECT Nome,
-                                avg(qtd_dramas) AS QtddeDramas,
-                                avg(qtd_ep) AS QtdeEp
+                                truncate(avg(qtd_dramas),1) AS QtddeDramas,
+                                truncate(avg(qtd_ep),1) AS QtdeEp
                                     FROM voto
                                         JOIN usuario ON fk_usuario = usuario.id
                                             GROUP BY Nome`;
@@ -46,8 +46,8 @@ function buscarMedidasEmTempoReal(idAquario) {
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql =`SELECT 
                         Nome,
-                            avg(qtd_dramas) AS QtddeDramas,
-                            avg(qtd_ep) AS QtdeEp
+                            truncate(avg(qtd_dramas),1) AS QtddeDramas,
+                            truncate(avg(qtd_ep),1) AS QtdeEp
                                 FROM voto
                                     JOIN usuario ON fk_usuario = usuario.id
                                         GROUP BY Nome`;

@@ -130,7 +130,8 @@ body {
   position: relative;
   top: 0;
   left: 25%;
-  background-color: #212226;
+  background-image: url(https://i.pinimg.com/originals/78/7d/b1/787db1c449e0f0d61c1d04ab0f95625f.png);
+  /* background-color: #0a2fc4; */
   height: 100vh;
 }
 
@@ -270,7 +271,7 @@ ul{
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: #e6005a;
+  color: #131112;
   background-color: white;
   margin: 5px;
   border-radius: 3px;

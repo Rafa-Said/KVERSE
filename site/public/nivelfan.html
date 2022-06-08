@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KVERSE - Simula</title>
+    <title>KVERSE - Game</title>
 
     <script src="./js/funcoes.js"></script>
 
@@ -28,25 +28,26 @@
             <a href="index.html"><img class="img1" src="img/Logo3.png"></a>
         </div>
     </div>
-    <div class="banner">
-        <div class="container">
-            <div class="card">
-                <h4>Nível de Dorameira</h4>
-                <div class="div_center">
-                    Seu nome:
-                    <br>
-                    <input id="inp_nome" type="text" placeholder="Digitie seu nome">
-                    <br>
-                    Quantos dramas já assistiu?
-                    <br>
-                    <input id="inp_qtd" type="text" placeholder="Digite a quantidade">
-                    <br>
-                    <button class="btn" onclick="simula()">Nível</button>
-                    <br>
-                    <div id="see"></div>
-                    <div id="ver"></div>
-
-                </div>
+    <div id="main">
+        <div id="text1">
+            <h2 id="title1">Nível de Dorameira</h2>
+            Seu nome:
+            <br><br>
+            <input id="inp_nome" type="text" placeholder="Digitie seu nome">
+            Quantos dramas já assistiu?
+            <br><br>
+            <input id="inp_qtd" type="text" placeholder="Digite a quantidade">
+            <button class="btn" onclick="muda()">Nível</button>
+            <br>
+            <div class="div_c">
+                <div id="ver"></div>
+                <div id="see"></div>
+            </div>
+        </div>
+        <div id="text2">
+            <button class="btn" onclick="sorte()">Seu personagem é</button>
+            <div class="div_c">
+                <div id="personagem"></div>
             </div>
         </div>
     </div>
@@ -61,15 +62,15 @@
 </body>
 
 </html>
-
 <script>
 
     const nomes = []
     const add = []
 
-    function simula() {
+    function muda() {
         /* Adiciona apenas uma nome por vez */
-        see.innerHTML = ``
+        ver.innerHTML = ``
+
         let n = (inp_nome.value) /* n = nome */
 
         if (n.length > 0) {
@@ -80,12 +81,12 @@
         }
 
         for (let p = 0; p < nomes.length; p++) { /* p de posição do nome */
-            see.innerHTML = `${nomes[p]} <br>`
+            ver.innerHTML = `${nomes[p]} <br>`
         }
-        /* Seleciona conforme a quantidade de Episódios*/
-        ver.innerHTML = ``
+        /* Seleciona conforme a quantidade de Episódios*//* É os pontos pelas quantidade de dramas assisitdos - Vale = 5% */
+        see.innerHTML = ``
         let quant = Number(inp_qtd.value)
-        let vale = quant * 0.5 /* É os pontos pelas quantidade de dramas assisitdos - Vale = 5% */
+        let vale = quant * 0.5
 
         if (quant > 0) {
             add.push(inp_qtd.value)
@@ -94,28 +95,105 @@
         }
         if (quant > 1 && quant <= 50) {
             console.log(` 1° IF`)
-            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 1).<br>`
-            ver.innerHTML += `<img src="../public/fan/nivel1.gif" style="width: 150px;">`
+            see.innerHTML += `Você está em ${vale}% | Dorameira (Nível 1).<br>`
+            see.innerHTML += `<img src="./fan/nivel1.gif" class="image">`
         } else if (quant > 51 && quant <= 100) {
             console.log(` 2° IF`)
-            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 2).<br>`
-            ver.innerHTML += `<img src="../public/fan/nivel2.gif" style="width: 150px;">`
+            see.innerHTML += `Você está em ${vale}% | Dorameira (Nível 2).<br>`
+            see.innerHTML += `<img src="./fan/nivel2.gif" class="image">`
         } else if (quant > 101 && quant <= 150) {
             console.log(` 3° IF`)
-            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 3).<br>`
-            ver.innerHTML += `<img src="../public/fan/nivel3.gif" style="width: 150px;">`
+            see.innerHTML += `Você está em ${vale}% | Dorameira (Nível 3).<br>`
+            see.innerHTML += `<img src="./fan/nivel3.gif" class="image">`
         } else if (quant > 151 && quant <= 199) {
             console.log(` 4° IF`)
-            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 4).<br>`
-            ver.innerHTML += `<img src="../public/fan/nivel4.gif" style="width: 150px;">`
+            see.innerHTML += `Você está em ${vale}% | Dorameira (Nível 4).<br>`
+            see.innerHTML += `<img src="./fan/nivel4.gif" class="image">`
         } else if (quant == 200) {
             console.log(` 5° IF`)
-            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 5).<br>`
-            ver.innerHTML += `<img src="../public/fan/nivel5.gif" style="width: 150px;">`
-        } else{
+            see.innerHTML += `Você está em ${vale}% | Dorameira (Nível 5).<br>`
+            see.innerHTML += `<img src="./fan/nivel5.gif" class="image">`
+        } else if (quant >= 201) {
             console.log(`6° IF`)
-            ver.innerHTML += `Você já assistiu tudo isso mesmo?!`
-            ver.innerHTML += `<img src="../public/fan/nivel6.gif" style="width: 150px;">`
+            see.innerHTML += `Você já assistiu tudo isso mesmo?!`
+            see.innerHTML += `<img src="./fan/nivel6.gif" class="image">`
         }
     }
+
+    function sorte() {
+
+        personagem.innerHTML = ``
+
+        var persona = parseInt(Math.random() * 12) + 1
+
+        if (persona == 1) {
+            personagem.innerHTML += `<h4 id="nome_per">Do Bong-soon</h4>`
+            personagem.innerHTML += `<img src="./fan/01.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">Strong Woman Do Bong-soon</h4><br>`
+
+        } if (persona == 2) {
+            personagem.innerHTML += `<h4 id="nome_per">Vincenzo</h4>`
+            personagem.innerHTML += `<img src="./fan/02.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">Vincenzo</h4><br>`
+
+        } if (persona == 3) {
+            personagem.innerHTML += `<h4 id="nome_per">Jin Seon-mi</h4>`
+            personagem.innerHTML += `<img src="./fan/03.png" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">A Korean Odissey</h4><br>`
+
+        } if (persona == 4) {
+            personagem.innerHTML += `<h4 id="nome_per">Yoon Jiwoo</h4>`
+            personagem.innerHTML += `<img src="./fan/04.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">My Name</h4><br>`
+
+        }
+        if (persona == 5) {
+            personagem.innerHTML += `<h4 id="nome_per">Yoon Seri</h4>`
+            personagem.innerHTML += `<img src="./fan/05.png" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">Crash Landing On You</h4><br>`
+
+        }
+        if (persona == 6) {
+            personagem.innerHTML += `<h4 id="nome_per">Yoon Jae-gook</h4>`
+            personagem.innerHTML += `<img src="./fan/06.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">Now, We're Are Breaking Up</h4><br>`
+
+        }
+        if (persona == 7) {
+            personagem.innerHTML += `<h4 id="nome_per">Lee Young-joon</h4>`
+            personagem.innerHTML += `<img src="./fan/07.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">O que há de errado <br> com a secretária Kim?</h4><br>`
+
+        }
+        if (persona == 8) {
+            personagem.innerHTML += `<h4 id="nome_per">Yoon Hye Jin</h4>`
+            personagem.innerHTML += `<img src="./fan/08.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">Hometown Cha-Cha-Cha (2021)</h4><br>`
+
+        }
+        if (persona == 9) {
+            personagem.innerHTML += `<h4 id="nome_per">Cheon Song Yi</h4>`
+            personagem.innerHTML += `<img src="./fan/09.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">My Love From The Star</h4><br>`
+
+        }
+        if (persona == 10) {
+            personagem.innerHTML += `<h4 id="nome_per">Kim Min Kyu</h4>`
+            personagem.innerHTML += `<img src="./fan/10.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">Eu não sou um Robô</h4><br>`
+
+        }
+        if (persona == 11) {
+            personagem.innerHTML += `<h4 id="nome_per">Mo-Yeon</h4>`
+            personagem.innerHTML += `<img src="./fan/11.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">Descendentes do Sol</h4><br>`
+
+        }
+        if (persona == 12) {
+            personagem.innerHTML += `<h4 id="nome_per">kim Je-ha</h4>`
+            personagem.innerHTML += `<img src="./fan/12.jpg" class="image1"><br>`
+            personagem.innerHTML += `<h4 id="nome_per">The K2</h4><br>`
+
+        }
+    }  
 </script>

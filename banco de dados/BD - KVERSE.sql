@@ -24,15 +24,12 @@ SELECT * FROM voto;
 
 SELECT 
     Nome,
-    AVG(qtd_dramas) QtddeDramas,
-    AVG(qtd_ep) QtdeEp
+    truncate((qtd_dramas),1) QtddeDramas,
+    truncate((qtd_ep),1) QtdeEp
 FROM
     voto
         JOIN
     usuario ON fk_usuario = usuario.id
 GROUP BY Nome;
 
-SELECT 
-    Nome, Email, MD5(Senha)
-FROM
-    usuario;
+
