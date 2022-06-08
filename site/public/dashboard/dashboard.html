@@ -139,16 +139,16 @@
                 {
                     yAxisID: 'y-umidade',
                     label: 'Quant. Episódios',
-                    borderColor: '#32B9CD',
-                    backgroundColor: '#32b9cd8f',
+                    borderColor: '#FFA07A',
+                    backgroundColor: '#FF7F50',
                     fill: true,
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
                     label: 'Quant. Dramas',
-                    borderColor: '#FFF',
-                    backgroundColor: '#32b9cd8f',
+                    borderColor: '#FFA07A',
+                    backgroundColor: '#FF7F50',
                     fill: true,
                     data: []
                 }
@@ -159,8 +159,8 @@
             var registro = resposta[i];
             dados.labels.push(registro.Nome);
             /* dados.labels.push(registro.qtd_ep); */
-            dados.datasets[0].data.push(registro.QtdDramas);
-            dados.datasets[1].data.push(registro. QtdEpisódios);
+            dados.datasets[0].data.push(registro.QtddeDramas);
+            dados.datasets[1].data.push(registro. QtdeEp);
         }
 
         console.log(JSON.stringify(dados));

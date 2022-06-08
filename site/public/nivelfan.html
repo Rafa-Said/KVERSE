@@ -28,32 +28,6 @@
             <a href="index.html"><img class="img1" src="img/Logo3.png"></a>
         </div>
     </div>
-<div id="tudo">
-    <div class="banner">
-        <div class="container">
-            <div class="card">
-                    Olá, <br>
-                    Bem vindo <br>
-                    Aos jogos rápidos <br>
-                    Vamos lá!!
-            </div>
-        </div>
-    </div>
-    <div class="banner">
-        <div class="container">
-            <div class="card">
-                <h4>Qual Personagem você é</h4>
-                <div class="div_center">
-                    <button class="btn" onclick="imgale()">Personagem</button>
-                    <div id="imgs"></div>
-                    <br>
-                    <div id="see"></div>
-                    <div id="ver"></div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="banner">
         <div class="container">
             <div class="card">
@@ -71,12 +45,11 @@
                     <br>
                     <div id="see"></div>
                     <div id="ver"></div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-</div>
     <div class="footer">
         <div class="container">
             <h4>
@@ -96,22 +69,22 @@
 
     function simula() {
         /* Adiciona apenas uma nome por vez */
-        ver.innerHTML = ``
+        see.innerHTML = ``
         let n = (inp_nome.value) /* n = nome */
 
         if (n.length > 0) {
             nomes.push(inp_nome.value)
         } else {
-            /* setTimeout(() => {
-                campo.innerHTML += `Campo nome vazio`;
-            }, "1000") */
+
             alert(`Campo nome vazio`)
-        } for (let p = 0; p < nomes.length; p++) { /* p de posição do nome */
+        }
+
+        for (let p = 0; p < nomes.length; p++) { /* p de posição do nome */
             see.innerHTML = `${nomes[p]} <br>`
         }
         /* Seleciona conforme a quantidade de Episódios*/
         ver.innerHTML = ``
-        let quant = Number(inp_qtd.value)  
+        let quant = Number(inp_qtd.value)
         let vale = quant * 0.5 /* É os pontos pelas quantidade de dramas assisitdos - Vale = 5% */
 
         if (quant > 0) {
@@ -121,24 +94,28 @@
         }
         if (quant > 1 && quant <= 50) {
             console.log(` 1° IF`)
-            ver.innerHTML += `Nível 1 que vale á ${vale}%. <p></p>`
-            ver.innerHTML += `<img src="../public/fan/nivel1.gif" style="width: 150px;"> <p></p>`
+            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 1).<br>`
+            ver.innerHTML += `<img src="../public/fan/nivel1.gif" style="width: 150px;">`
         } else if (quant > 51 && quant <= 100) {
             console.log(` 2° IF`)
-            ver.innerHTML += `Nível 2 que vale á ${vale}%. <p></p>`
-            ver.innerHTML += `<img src="../public/fan/nivel2.gif" style="width: 150px;"> <p></p>`
+            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 2).<br>`
+            ver.innerHTML += `<img src="../public/fan/nivel2.gif" style="width: 150px;">`
         } else if (quant > 101 && quant <= 150) {
             console.log(` 3° IF`)
-            ver.innerHTML += `Nível 3 que vale á ${vale}%. <p></p>`
-            ver.innerHTML += `<img src="../public/fan/nivel3.gif" style="width: 150px;"> <p></p>`
-        } else if (quant > 151 && quant <= 200) {
+            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 3).<br>`
+            ver.innerHTML += `<img src="../public/fan/nivel3.gif" style="width: 150px;">`
+        } else if (quant > 151 && quant <= 199) {
             console.log(` 4° IF`)
-            ver.innerHTML += `Nível 4 que vale á ${vale}%. <p></p>`
-            ver.innerHTML += `<img src="../public/fan/nivel4.gif" style="width: 150px;"> <p></p>`
-        } else if (quant > 200) {
+            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 4).<br>`
+            ver.innerHTML += `<img src="../public/fan/nivel4.gif" style="width: 150px;">`
+        } else if (quant == 200) {
             console.log(` 5° IF`)
-            ver.innerHTML += `Nível 5 que vale á ${vale}%. <p></p>`
-            ver.innerHTML += `<img src="../public/fan/nivel5.gif" style="width: 150px;"> <p></p>`
+            ver.innerHTML += `Você está em ${vale}% | Dorameira (Nível 5).<br>`
+            ver.innerHTML += `<img src="../public/fan/nivel5.gif" style="width: 150px;">`
+        } else{
+            console.log(`6° IF`)
+            ver.innerHTML += `Você já assistiu tudo isso mesmo?!`
+            ver.innerHTML += `<img src="../public/fan/nivel6.gif" style="width: 150px;">`
         }
     }
 </script>

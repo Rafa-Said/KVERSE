@@ -14,13 +14,12 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
                     where fk_aquario = ${idAquario}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `SELECT 
-                            Nome,
-                                TRUNCATE(AVG(qtd_dramas), 1) QtddeDramas,
-                                TRUNCATE(AVG(qtd_ep), 1) QtdeEp
+        instrucaoSql = `SELECT Nome,
+                                avg(qtd_dramas) AS QtddeDramas,
+                                avg(qtd_ep) AS QtdeEp
                                     FROM voto
                                         JOIN usuario ON fk_usuario = usuario.id
-                                            GROUP BY fk_usuario;`;
+                                            GROUP BY Nome`;
         
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -47,11 +46,11 @@ function buscarMedidasEmTempoReal(idAquario) {
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql =`SELECT 
                         Nome,
-                            TRUNCATE(AVG(qtd_dramas), 1) QtddeDramas,
-                            TRUNCATE(AVG(qtd_ep), 1) QtdeEp
+                            avg(qtd_dramas) AS QtddeDramas,
+                            avg(qtd_ep) AS QtdeEp
                                 FROM voto
                                     JOIN usuario ON fk_usuario = usuario.id
-                                        GROUP BY fk_usuario;`;
+                                        GROUP BY Nome`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

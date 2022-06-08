@@ -52,8 +52,8 @@
                     <img src="img/taxidriver.jpg" style="width:100%">
                 </div>
 
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
             </div>
         </div>
     </div>
@@ -112,7 +112,6 @@
         slideIndex++;
         if (slideIndex > slides.length) { slideIndex = 1 }
         slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
+        setTimeout(showSlides, 5000); // Tempo de um slideshow para o outro
     }
 </script>
-<!-- https://www.macoratti.net/08/06/aspn_cpt1.htm -  Acessr este site para configurar o captchat  -->
